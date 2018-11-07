@@ -130,8 +130,13 @@ init = (happenedStart = null, happenedEnd = null, tags = [])->
   window.CurrentCards = Utl.shuffle window.CurrentCards
   for index in [0...2]
     window.Board.push window.CurrentCards.pop()
+  window.sortBoard()
 
   # 問題を設定
   window.Question = window.CurrentCards.pop()
 
   view()
+
+sortBoard = ->
+  window.Board.sort (a, b)->
+    a.happened - b.happened
